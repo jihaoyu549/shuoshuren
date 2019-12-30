@@ -3,7 +3,7 @@ package cn.tedu.shoot;
 import java.awt.image.BufferedImage;
 
 /*
- * Ğ¡µĞ»úÀà£¬¼Ì³ĞFlyingObject,ÊµÏÖĞ¡µĞ»úµÄÒÆ¶¯£¬ËÀÍöºó±¬ÆÆ
+ * å°æ•Œæœºç±»ï¼Œç»§æ‰¿FlyingObject,å®ç°å°æ•Œæœºçš„ç§»åŠ¨ï¼Œæ­»äº¡åçˆ†ç ´
  */
 public class Airplane extends FlyingObject implements Enemy {
 
@@ -12,10 +12,10 @@ public class Airplane extends FlyingObject implements Enemy {
 	Airplane(){
 		super(48,50,1);
 		if(World.score>=260) {
-			speed = 4;       //µÚ¶ş¹ØËÙ¶È
+			speed = 4;       //ç¬¬äºŒå…³é€Ÿåº¦
 		}
 		else {
-			speed = 2;       //µÚÒ»¹ØËÙ¶È
+			speed = 2;       //ç¬¬ä¸€å…³é€Ÿåº¦
 		}
 	}
 	
@@ -24,8 +24,8 @@ public class Airplane extends FlyingObject implements Enemy {
 	}
 
 	/*
-	 * »ñÈ¡Ğ¡µĞ»úµÄÍ¼Æ¬£¬×´Ì¬ÎªLIFEÊ±·µ»ØĞ¡µĞ»úÍ¼Æ¬
-	 * ×´Ì¬ÎªDEADÊ±·µ»Ø4ÕÅ±¬ÆÆÍ¼Æ¬£¬È«²¿·µ»Øºó½«×´Ì¬¸ÄÎªREMOVE£¬·µ»Ønull
+	 * è·å–å°æ•Œæœºçš„å›¾ç‰‡ï¼ŒçŠ¶æ€ä¸ºLIFEæ—¶è¿”å›å°æ•Œæœºå›¾ç‰‡
+	 * çŠ¶æ€ä¸ºDEADæ—¶è¿”å›4å¼ çˆ†ç ´å›¾ç‰‡ï¼Œå…¨éƒ¨è¿”å›åå°†çŠ¶æ€æ”¹ä¸ºREMOVEï¼Œè¿”å›null
 	 */
 	int index = 1;
 	public BufferedImage getImage() {
@@ -41,15 +41,15 @@ public class Airplane extends FlyingObject implements Enemy {
 		return null;
 	}
 	
-	//Éú³ÉÒ»¿Å×Óµ¯µÄ×Óµ¯Êı×é×Óµ¯µÄ³õÊ¼×ø±êÎªµ±Ç°Ğ¡µĞ»úµÄÏÂÃæ£¬×Óµ¯·½ÏòÏòÏÂ
+	//ç”Ÿæˆä¸€é¢—å­å¼¹çš„å­å¼¹æ•°ç»„å­å¼¹çš„åˆå§‹åæ ‡ä¸ºå½“å‰å°æ•Œæœºçš„ä¸‹é¢ï¼Œå­å¼¹æ–¹å‘å‘ä¸‹
 	public Bullet[] shoot(){
 		if(World.score>=260) {
-			Bullet[] res = new Bullet[2];                  //µÚ¶ş¹Ø×Óµ¯Êı
+			Bullet[] res = new Bullet[2];                  //ç¬¬äºŒå…³å­å¼¹æ•°
 			res[0] = new Bullet(x+this.width/2,y+this.height+10,"down");
 			res[1] = new Bullet(x+this.width/3,y+this.height+10,"down");
 			return res;
 		} 
-		else {                                             //µÚÒ»¹Ø×Óµ¯Êı
+		else {                                             //ç¬¬ä¸€å…³å­å¼¹æ•°
 			Bullet[] res = new Bullet[1];
 		    res[0] = new Bullet(x+this.width/2,y+this.height+10,"down");
 		    return res;
@@ -57,12 +57,12 @@ public class Airplane extends FlyingObject implements Enemy {
 		
 	}
 	
-	//Ğ¡µĞ»úµÄy×ø±ê´óÓÚ´°¿ÚµÄ¸ß·µ»Øture
+	//å°æ•Œæœºçš„yåæ ‡å¤§äºçª—å£çš„é«˜è¿”å›ture
 	public boolean outBround() {
 		return y>=World.HEIGHT;
 	}
 
-	//·µ»ØĞ¡µĞ»úµÄ·ÖÊı
+	//è¿”å›å°æ•Œæœºçš„åˆ†æ•°
 	public int getScore() {
 		return 1;
 	}

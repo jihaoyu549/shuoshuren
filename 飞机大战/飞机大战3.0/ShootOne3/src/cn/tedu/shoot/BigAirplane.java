@@ -3,7 +3,7 @@ package cn.tedu.shoot;
 import java.awt.image.BufferedImage;
 
 /*
- * ´óµÐ»úÀà£¬ÊµÏÖ´óµÐ»úµÄÒÆ¶¯ºÍÉú³É×Óµ¯Êý×éÒÔ¼°·µ»Ø·ÖÊý
+ * å¤§æ•Œæœºç±»ï¼Œå®žçŽ°å¤§æ•Œæœºçš„ç§»åŠ¨å’Œç”Ÿæˆå­å¼¹æ•°ç»„ä»¥åŠè¿”å›žåˆ†æ•°
  */
 public class BigAirplane extends FlyingObject implements Enemy {
 
@@ -12,10 +12,10 @@ public class BigAirplane extends FlyingObject implements Enemy {
 		super(66,89,3);
 		
 		if(World.score>=260) {
-			speed = 4;   //µÚ¶þ¹ØËÙ¶È
+			speed = 4;   //ç¬¬äºŒå…³é€Ÿåº¦
 		}
 		else {
-			speed=2;     //µÚÒ»¹ØËÙ¶È
+			speed=2;     //ç¬¬ä¸€å…³é€Ÿåº¦
 		}
 		
 	}
@@ -25,8 +25,8 @@ public class BigAirplane extends FlyingObject implements Enemy {
 	}
 
 	/*
-	 * »ñÈ¡´óµÐ»úµÄÍ¼Æ¬£¬×´Ì¬ÎªLIFEÊ±·µ»Ø´óµÐ»úÍ¼Æ¬
-	 * ×´Ì¬ÎªDEADÊ±·µ»Ø4ÕÅ±¬ÆÆÍ¼Æ¬£¬È«²¿·µ»Øºó½«×´Ì¬¸ÄÎªREMOVE£¬·µ»Ønull
+	 * èŽ·å–å¤§æ•Œæœºçš„å›¾ç‰‡ï¼ŒçŠ¶æ€ä¸ºLIFEæ—¶è¿”å›žå¤§æ•Œæœºå›¾ç‰‡
+	 * çŠ¶æ€ä¸ºDEADæ—¶è¿”å›ž4å¼ çˆ†ç ´å›¾ç‰‡ï¼Œå…¨éƒ¨è¿”å›žåŽå°†çŠ¶æ€æ”¹ä¸ºREMOVEï¼Œè¿”å›žnull
 	 */
 	int index = 1;
 	public BufferedImage getImage() {
@@ -42,30 +42,30 @@ public class BigAirplane extends FlyingObject implements Enemy {
 		return null;
 	}
 
-	//Éú³ÉÒ»¿Å×Óµ¯µÄ×Óµ¯Êý×é×Óµ¯µÄ³õÊ¼×ø±êÎªµ±Ç°Ð¡µÐ»úµÄÏÂÃæ£¬×Óµ¯·½ÏòÏòÏÂ
+	//ç”Ÿæˆä¸€é¢—å­å¼¹çš„å­å¼¹æ•°ç»„å­å¼¹çš„åˆå§‹åæ ‡ä¸ºå½“å‰å°æ•Œæœºçš„ä¸‹é¢ï¼Œå­å¼¹æ–¹å‘å‘ä¸‹
 	public Bullet[] shoot(){
 		if(World.score>=260)
 		{
-			Bullet[] res = new Bullet[3];             //µÚ¶þ¹Ø×Óµ¯Êý
+			Bullet[] res = new Bullet[3];             //ç¬¬äºŒå…³å­å¼¹æ•°
 		    res[0] = new Bullet(x+this.width/2,y+this.height+30,"down");
 		    res[1] = new Bullet(x+this.width/4,y+this.height+10,"down");
 		    res[2] = new Bullet(x+3*this.width/4,y+this.height+10,"down");
 		    return res;
 		}
 		else {
-			Bullet[] res = new Bullet[1];            //µÚÒ»¹Ø×Óµ¯Êý
+			Bullet[] res = new Bullet[1];            //ç¬¬ä¸€å…³å­å¼¹æ•°
 		    res[0] = new Bullet(x+this.width/2,y+this.height+10,"down");
 		    return res;
 		}
 			
 		}
 	
-	//´óµÐ»úµÄy×ø±ê´óÓÚ´°¿ÚµÄ¸ß·µ»Øture
+	//å¤§æ•Œæœºçš„yåæ ‡å¤§äºŽçª—å£çš„é«˜è¿”å›žture
 	public boolean outBround() {
 		return y>=World.HEIGHT;
 	}
 	
-	//Ö±½Ó·µ»Ø´óµÐ»úµÄ·ÖÊý
+	//ç›´æŽ¥è¿”å›žå¤§æ•Œæœºçš„åˆ†æ•°
 	public int getScore() {
 		return 3;
 	}
